@@ -1,0 +1,269 @@
+[
+    {
+        "version": "1.7.0",
+        "release_date": "15-09-2021",
+        "description": "KFD release supporting Kubernetes runtime 1.22",
+        "repo_url": "https://github.com/sighupio/fury-distribution",
+        "doc_url": "http://kfd-docs-docusaurus.surge.sh/docs/overview",
+        "release_notes": {
+            "breaking_changes": [],
+            "features": [
+                "Support for Kubernetes `1.22`"
+            ],
+            "bug_fixes": [
+                "World ending bug fixed"
+            ],
+            "security_fixes": [],
+            "documentation_fixes": [
+                "Pretty docs for the people"
+            ]
+        },
+        "supported_k8s_runtimes": [1.19, 1.20, 1.21, 1.22],
+        "modules": [
+            {
+                "name": "fury-kubernetes-monitoring",
+                "description": "A core module that does monitoring",
+                "version": "1.13.0",
+                "release_date": "15-09-2021",
+                "repo_url": "https://github.com/sighupio/fury-kubernetes-monitoring",
+                "doc_url": "kfd-docs-docusaurus.surge.sh/docs/🗝%EF%B8%8F Fury Modules/intro",
+                "release_notes": {
+                    "breaking_changes": [],
+                    "features": [],
+                    "bug_fixes": [],
+                    "security_fixes": [],
+                    "documentation_fixes": []
+                },
+                "upgrade_warnings": [
+                ],
+                "known_issues": [
+                ],
+                "k8s_compatibility_matrix": [
+                    {
+                        "k8s_version": 1.19,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.20,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.21,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.22,
+                        "state": "Has Issues"
+                    }
+                ],
+                "components": [
+                    {
+                        "name": "grafana",
+                        "description": "Viz toolz",
+                        "resources": [
+                            {
+                                "name": "grafana",
+                                "kind": "deployment",
+                                "image": "registry.sighup.io/fury/grafana",
+                                "version": "8.2.1",
+                                "upstream_image": "grafana/grafna",
+                                "upstream_latest_version": "8.5.4",
+                                "maintained": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "fury-kubernetes-ingress",
+                "description": "A core module that provides Ingress suite",
+                "version": "1.11.1",
+                "release_date": "15-09-2021",
+                "repo_url": "https://github.com/sighupio/fury-kubernetes-ingress",
+                "doc_url": "kfd-docs-docusaurus.surge.sh/docs/🗝%EF%B8%8F Fury Modules/intro",
+                "release_notes": {
+                    "breaking_changes": [],
+                    "features": [],
+                    "bug_fixes": [],
+                    "security_fixes": [],
+                    "documentation_fixes": []
+                },
+                "upgrade_warnings": [
+                ],
+                "known_issues": [
+                ],
+                "k8s_compatibility_matrix": [
+                    {
+                        "k8s_version": 1.19,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.20,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.21,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.22,
+                        "state": "Has Issues"
+                    }
+                ],
+                "components": []
+            },
+            {
+                "name": "fury-kubernetes-logging",
+                "description": "A core module that does logging",
+                "version": "v1.9.0",
+                "release_date": "13-09-2021",
+                "repo_url": "https://github.com/sighupio/fury-kubernetes-logging",
+                "doc_url": "kfd-docs-docusaurus.surge.sh/docs/🗝%EF%B8%8F Fury Modules/intro",
+                "release_notes": {
+                    "breaking_changes": [],
+                    "features": [],
+                    "bug_fixes": [],
+                    "security_fixes": [],
+                    "documentation_fixes": []
+                },
+                "upgrade_warnings": [
+                ],
+                "known_issues": [
+                ],
+                "k8s_compatibility_matrix": [
+                    {
+                        "k8s_version": 1.19,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.20,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.21,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.22,
+                        "state": "Has Issues"
+                    }
+                ],
+                "components": []
+            },
+            {
+                "name": "fury-kubernetes-dr",
+                "description": "A core module that does disastor recovery",
+                "version": "v1.8.0",
+                "release_date": "08-09-2021",
+                "repo_url": "https://github.com/sighupio/fury-kubernetes-dr",
+                "doc_url": "kfd-docs-docusaurus.surge.sh/docs/🗝%EF%B8%8F Fury Modules/intro",
+                "release_notes": {
+                    "breaking_changes": [],
+                    "features": [],
+                    "bug_fixes": [],
+                    "security_fixes": [],
+                    "documentation_fixes": []
+                },
+                "upgrade_warnings": [
+                ],
+                "known_issues": [
+                ],
+                "k8s_compatibility_matrix": [
+                    {
+                        "k8s_version": 1.19,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.20,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.21,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.22,
+                        "state": "Has Issues"
+                    }
+                ],
+                "components": []
+            },
+            {
+                "name": "fury-kubernetes-networking",
+                "description": "A core module that does networking",
+                "version": "v1.7.0",
+                "release_date": "13-09-2021",
+                "repo_url": "https://github.com/sighupio/fury-kubernetes-networking",
+                "doc_url": "kfd-docs-docusaurus.surge.sh/docs/🗝%EF%B8%8F Fury Modules/intro",
+                "release_notes": {
+                    "breaking_changes": [],
+                    "features": [],
+                    "bug_fixes": [],
+                    "security_fixes": [],
+                    "documentation_fixes": []
+                },
+                "upgrade_warnings": [
+                ],
+                "known_issues": [
+                ],
+                "k8s_compatibility_matrix": [
+                    {
+                        "k8s_version": 1.19,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.20,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.21,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.22,
+                        "state": "Has Issues"
+                    }
+                ],
+                "components": []
+            },
+            {
+                "name": "fury-kubernetes-opa",
+                "description": "A core module that does policy management",
+                "version": "v1.5.0",
+                "release_date": "13-09-2021",
+                "repo_url": "https://github.com/sighupio/fury-kubernetes-opa",
+                "doc_url": "kfd-docs-docusaurus.surge.sh/docs/🗝%EF%B8%8F Fury Modules/intro",
+                "release_notes": {
+                    "breaking_changes": [],
+                    "features": [],
+                    "bug_fixes": [],
+                    "security_fixes": [],
+                    "documentation_fixes": []
+                },
+                "upgrade_warnings": [
+                ],
+                "known_issues": [
+                ],
+                "k8s_compatibility_matrix": [
+                    {
+                        "k8s_version": 1.19,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.20,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.21,
+                        "state": "Compatible"
+                    },
+                    {
+                        "k8s_version": 1.22,
+                        "state": "Has Issues"
+                    }
+                ],
+                "components": []
+            }
+        ]
+    }
+]
