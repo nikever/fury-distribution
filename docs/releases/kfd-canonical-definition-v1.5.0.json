@@ -1,0 +1,1841 @@
+{
+ "modules": [
+  {
+   "components": [
+    {
+     "name": "dashboards",
+     "resources": []
+    },
+    {
+     "name": "calico",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "calico-node",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/calico/kube-controllers",
+         "upstreamImage": "calico/kube-controllers",
+         "version": "v3.19.2"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "calico-kube-controllers",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/calico/node",
+         "upstreamImage": "calico/node",
+         "version": "v3.19.2"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "calico-node",
+       "namespace": "kube-system"
+      }
+     ]
+    }
+   ],
+   "module": "fury-kubernetes-networking",
+   "version": "v1.7.0"
+  },
+  {
+   "components": [
+    {
+     "name": "velero-aws",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "velero",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/velero/velero",
+         "upstreamImage": "velero/velero",
+         "version": "v1.6.3"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "velero",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "velero-azure",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "velero",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/velero/velero",
+         "upstreamImage": "velero/velero",
+         "version": "v1.6.3"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "velero",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "dashboards",
+     "resources": []
+    },
+    {
+     "name": "velero-base",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "velero",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/velero/velero",
+         "upstreamImage": "velero/velero",
+         "version": "v1.6.3"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "velero",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "velero-gcp",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "velero",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/velero/velero",
+         "upstreamImage": "velero/velero",
+         "version": "v1.6.3"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "velero",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "velero-on-prem",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "minio",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "velero",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/velero/velero",
+         "upstreamImage": "velero/velero",
+         "version": "v1.6.3"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "velero",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/minio",
+         "upstreamImage": "minio",
+         "version": "RELEASE.2021-05-26T00-22-46Z"
+        }
+       ],
+       "kind": "StatefulSet",
+       "name": "minio",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "batch/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/minio/mc",
+         "upstreamImage": "minio/mc",
+         "version": "RELEASE.2021-05-18T03-39-44Z"
+        }
+       ],
+       "kind": "Job",
+       "name": "minio-setup",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "minio",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "minio",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/minio",
+         "upstreamImage": "minio",
+         "version": "RELEASE.2021-05-26T00-22-46Z"
+        }
+       ],
+       "kind": "StatefulSet",
+       "name": "minio",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "batch/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/minio/mc",
+         "upstreamImage": "minio/mc",
+         "version": "RELEASE.2021-05-18T03-39-44Z"
+        }
+       ],
+       "kind": "Job",
+       "name": "minio-setup",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "velero-restic",
+     "resources": [
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/velero/velero",
+         "upstreamImage": "velero/velero",
+         "version": "v1.6.3"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "velero-restic",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "velero-schedules",
+     "resources": []
+    }
+   ],
+   "module": "fury-kubernetes-dr",
+   "version": "1.8.0"
+  },
+  {
+   "components": [
+    {
+     "name": "core",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "gatekeeper-audit-service",
+       "namespace": "gatekeeper-system"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "gatekeeper-webhook-service",
+       "namespace": "gatekeeper-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/openpolicyagent/gatekeeper",
+         "upstreamImage": "openpolicyagent/gatekeeper",
+         "version": "v3.6.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "gatekeeper-audit",
+       "namespace": "gatekeeper-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/openpolicyagent/gatekeeper",
+         "upstreamImage": "openpolicyagent/gatekeeper",
+         "version": "v3.6.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "gatekeeper-controller-manager",
+       "namespace": "gatekeeper-system"
+      }
+     ]
+    },
+    {
+     "name": "gpm",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "gatekeeper-policy-manager",
+       "namespace": "gatekeeper-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/gatekeeper-policy-manager",
+         "upstreamImage": "gatekeeper-policy-manager",
+         "version": "v0.5.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "gatekeeper-policy-manager",
+       "namespace": "gatekeeper-system"
+      }
+     ]
+    },
+    {
+     "name": "gatekeeper",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "gatekeeper-audit-service",
+       "namespace": "gatekeeper-system"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "gatekeeper-policy-manager",
+       "namespace": "gatekeeper-system"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "gatekeeper-webhook-service",
+       "namespace": "gatekeeper-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/openpolicyagent/gatekeeper",
+         "upstreamImage": "openpolicyagent/gatekeeper",
+         "version": "v3.6.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "gatekeeper-audit",
+       "namespace": "gatekeeper-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/openpolicyagent/gatekeeper",
+         "upstreamImage": "openpolicyagent/gatekeeper",
+         "version": "v3.6.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "gatekeeper-controller-manager",
+       "namespace": "gatekeeper-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/gatekeeper-policy-manager",
+         "upstreamImage": "gatekeeper-policy-manager",
+         "version": "v0.5.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "gatekeeper-policy-manager",
+       "namespace": "gatekeeper-system"
+      }
+     ]
+    },
+    {
+     "name": "monitoring",
+     "resources": []
+    },
+    {
+     "name": "config",
+     "resources": []
+    },
+    {
+     "name": "constraints",
+     "resources": []
+    },
+    {
+     "name": "rules",
+     "resources": []
+    },
+    {
+     "name": "templates",
+     "resources": []
+    }
+   ],
+   "module": "fury-kubernetes-opa",
+   "version": "1.5.0"
+  },
+  {
+   "components": [
+    {
+     "name": "cerebro",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "cerebro",
+       "namespace": "logging"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/lmenezes/cerebro",
+         "upstreamImage": "lmenezes/cerebro",
+         "version": "0.9.4"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "cerebro",
+       "namespace": "logging"
+      }
+     ]
+    },
+    {
+     "name": "curator",
+     "resources": [
+      {
+       "apiVersion": "batch/v1beta1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/curator",
+         "upstreamImage": "curator",
+         "version": "5.8.4_3.8-alpine"
+        }
+       ],
+       "kind": "CronJob",
+       "name": "curator",
+       "namespace": "logging"
+      }
+     ]
+    },
+    {
+     "name": "curator-s3",
+     "resources": [
+      {
+       "apiVersion": "batch/v1beta1",
+       "containers": [
+        {
+         "image": "reg.sighup.io/sighupio/fury/curator",
+         "upstreamImage": "curator",
+         "version": "5.8.4_3.8-alpine"
+        }
+       ],
+       "kind": "CronJob",
+       "name": "curator",
+       "namespace": "logging"
+      },
+      {
+       "apiVersion": "batch/v1beta1",
+       "containers": [
+        {
+         "image": "reg.sighup.io/sighupio/fury/curator",
+         "upstreamImage": "curator",
+         "version": "5.8.4_3.8-alpine"
+        }
+       ],
+       "kind": "CronJob",
+       "name": "snapshot-configurator",
+       "namespace": "logging"
+      }
+     ]
+    },
+    {
+     "name": "elasticsearch-single",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "elasticsearch",
+       "namespace": "logging"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/justwatch/elasticsearch_exporter",
+         "upstreamImage": "justwatch/elasticsearch_exporter",
+         "version": "1.1.0"
+        },
+        {
+         "image": "registry.sighup.io/fury/elasticsearch",
+         "upstreamImage": "elasticsearch",
+         "version": "7.13.3"
+        }
+       ],
+       "kind": "StatefulSet",
+       "name": "elasticsearch",
+       "namespace": "logging"
+      }
+     ]
+    },
+    {
+     "name": "elasticsearch-triple",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "elasticsearch",
+       "namespace": "logging"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/elasticsearch",
+         "upstreamImage": "elasticsearch",
+         "version": "7.13.3"
+        },
+        {
+         "image": "registry.sighup.io/fury/justwatch/elasticsearch_exporter",
+         "upstreamImage": "justwatch/elasticsearch_exporter",
+         "version": "1.1.0"
+        }
+       ],
+       "kind": "StatefulSet",
+       "name": "elasticsearch",
+       "namespace": "logging"
+      }
+     ]
+    },
+    {
+     "name": "fluentd",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "fluentbit",
+       "namespace": "logging"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "fluentd",
+       "namespace": "logging"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/fluentd-elasticsearch",
+         "upstreamImage": "fluentd-elasticsearch",
+         "version": "v1.14.0-debian-1.0"
+        }
+       ],
+       "kind": "StatefulSet",
+       "name": "fluentd",
+       "namespace": "logging"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/fluent/fluent-bit",
+         "upstreamImage": "fluent/fluent-bit",
+         "version": "1.8.2"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "fluentbit",
+       "namespace": "logging"
+      }
+     ]
+    },
+    {
+     "name": "kibana",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "kibana",
+       "namespace": "logging"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/kibana",
+         "upstreamImage": "kibana",
+         "version": "7.13.3"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "kibana",
+       "namespace": "logging"
+      }
+     ]
+    }
+   ],
+   "known_issues": [],
+   "module": "fury-kubernetes-logging",
+   "release_notes": {
+    "breaking_changes": [],
+    "bug_fixes": [],
+    "documentation_fixes": [],
+    "features": [],
+    "security_fixes": []
+   },
+   "upgrade_warnings": [],
+   "version": "v1.9.0"
+  },
+  {
+   "components": [
+    {
+     "name": "aks-sm",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "coredns",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "dashboards",
+     "resources": []
+    },
+    {
+     "name": "alertmanager-operated",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "alertmanager-main",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "aks",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "coredns",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "coredns",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "coredns",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "default",
+     "resources": []
+    },
+    {
+     "name": "eks",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "coredns",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "gke",
+     "resources": []
+    },
+    {
+     "name": "kubeadm",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "coredns",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "etcd-metrics",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "kube-controller-manager",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "kube-scheduler",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "configs",
+     "resources": []
+    },
+    {
+     "name": "ovh",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "coredns",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "eks-sm",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "coredns",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "gke-sm",
+     "resources": []
+    },
+    {
+     "name": "dashboards",
+     "resources": []
+    },
+    {
+     "name": "goldpinger",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "goldpinger",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/bloomberg/goldpinger",
+         "upstreamImage": "bloomberg/goldpinger",
+         "version": "v3.2.0"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "goldpinger",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "dashboards",
+     "resources": []
+    },
+    {
+     "name": "grafana",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "grafana",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/kiwigrid/k8s-sidecar",
+         "upstreamImage": "kiwigrid/k8s-sidecar",
+         "version": "1.12.3"
+        },
+        {
+         "image": "registry.sighup.io/fury/grafana/grafana",
+         "upstreamImage": "grafana/grafana",
+         "version": "8.1.2"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "grafana",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "dashboards",
+     "resources": []
+    },
+    {
+     "name": "kube-proxy-metrics",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "kube-proxy-metrics",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/brancz/kube-rbac-proxy",
+         "upstreamImage": "brancz/kube-rbac-proxy",
+         "version": "v0.11.0"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "kube-proxy-metrics",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "dashboards",
+     "resources": []
+    },
+    {
+     "name": "kube-state-metrics",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "kube-state-metrics",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/kube-state-metrics/kube-state-metrics",
+         "upstreamImage": "kube-state-metrics/kube-state-metrics",
+         "version": "v2.2.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "kube-state-metrics",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "kubeadm-sm",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "coredns",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "etcd-metrics",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "kube-controller-manager",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "kube-scheduler",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "metrics-server",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "metrics-server",
+       "namespace": "kube-system"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/metrics-server",
+         "upstreamImage": "metrics-server",
+         "version": "v0.5.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "metrics-server",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "dashboards",
+     "resources": []
+    },
+    {
+     "name": "node-exporter",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "node-exporter",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/prometheus/node-exporter",
+         "upstreamImage": "prometheus/node-exporter",
+         "version": "v1.2.2"
+        },
+        {
+         "image": "registry.sighup.io/fury/brancz/kube-rbac-proxy",
+         "upstreamImage": "brancz/kube-rbac-proxy",
+         "version": "v0.11.0"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "node-exporter",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "ovh-sm",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "coredns",
+       "namespace": "kube-system"
+      }
+     ]
+    },
+    {
+     "name": "dashboards",
+     "resources": []
+    },
+    {
+     "name": "prometheus-operated",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "prometheus-k8s",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "prometheus-operator",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "prometheus-operator",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/prometheus-operator/prometheus-operator",
+         "upstreamImage": "prometheus-operator/prometheus-operator",
+         "version": "v0.50.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "prometheus-operator",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "kustomize-project",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "grafana",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/grafana/grafana",
+         "upstreamImage": "grafana/grafana",
+         "version": "8.1.2"
+        },
+        {
+         "image": "registry.sighup.io/fury/kiwigrid/k8s-sidecar",
+         "upstreamImage": "kiwigrid/k8s-sidecar",
+         "version": "1.12.3"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "grafana",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "thanos",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "thanos-query",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "thanos-sidecar",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/thanos",
+         "upstreamImage": "thanos",
+         "version": "v0.22.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "thanos-query",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "thanos-compact",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "thanos-compact",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/thanos",
+         "upstreamImage": "thanos",
+         "version": "v0.22.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "thanos-compact",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "thanos-query",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "thanos-query",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "thanos-sidecar",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/thanos",
+         "upstreamImage": "thanos",
+         "version": "v0.22.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "thanos-query",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "thanos-rule",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "thanos-rule",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/thanos",
+         "upstreamImage": "thanos",
+         "version": "v0.22.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "thanos-rule",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "thanos-store",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "thanos-store",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/thanos",
+         "upstreamImage": "thanos",
+         "version": "v0.22.0"
+        }
+       ],
+       "kind": "StatefulSet",
+       "name": "thanos-store",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "thanos-with-store",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "thanos-compact",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "thanos-query",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "thanos-sidecar",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "thanos-store",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/thanos",
+         "upstreamImage": "thanos",
+         "version": "v0.22.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "thanos-compact",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/thanos",
+         "upstreamImage": "thanos",
+         "version": "v0.22.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "thanos-query",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/thanos",
+         "upstreamImage": "thanos",
+         "version": "v0.22.0"
+        }
+       ],
+       "kind": "StatefulSet",
+       "name": "thanos-store",
+       "namespace": "monitoring"
+      }
+     ]
+    },
+    {
+     "name": "grafana",
+     "resources": []
+    },
+    {
+     "name": "x509-exporter",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "x509-certificate-exporter-headless",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/enix/x509-certificate-exporter",
+         "upstreamImage": "enix/x509-certificate-exporter",
+         "version": "2.11.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "x509-certificate-exporter",
+       "namespace": "monitoring"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/enix/x509-certificate-exporter",
+         "upstreamImage": "enix/x509-certificate-exporter",
+         "version": "2.11.0"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "x509-certificate-exporter-nodes",
+       "namespace": "monitoring"
+      }
+     ]
+    }
+   ],
+   "module": "fury-kubernetes-monitoring",
+   "version": "1.13.0"
+  },
+  {
+   "components": [
+    {
+     "name": "cainjector",
+     "resources": [
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/jetstack/cert-manager-cainjector",
+         "upstreamImage": "jetstack/cert-manager-cainjector",
+         "version": "v1.5.3"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "cert-manager-cainjector",
+       "namespace": "cert-manager"
+      }
+     ]
+    },
+    {
+     "name": "cert-manager-controller",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "cert-manager",
+       "namespace": "cert-manager"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/jetstack/cert-manager-controller",
+         "upstreamImage": "jetstack/cert-manager-controller",
+         "version": "v1.5.3"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "cert-manager",
+       "namespace": "cert-manager"
+      }
+     ]
+    },
+    {
+     "name": "dashboards",
+     "resources": []
+    },
+    {
+     "name": "cert-manager",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "cert-manager",
+       "namespace": "cert-manager"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "cert-manager-webhook",
+       "namespace": "cert-manager"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/jetstack/cert-manager-controller",
+         "upstreamImage": "jetstack/cert-manager-controller",
+         "version": "v1.5.3"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "cert-manager",
+       "namespace": "cert-manager"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/jetstack/cert-manager-cainjector",
+         "upstreamImage": "jetstack/cert-manager-cainjector",
+         "version": "v1.5.3"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "cert-manager-cainjector",
+       "namespace": "cert-manager"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/jetstack/cert-manager-webhook",
+         "upstreamImage": "jetstack/cert-manager-webhook",
+         "version": "v1.5.3"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "cert-manager-webhook",
+       "namespace": "cert-manager"
+      }
+     ]
+    },
+    {
+     "name": "webhook",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "cert-manager-webhook",
+       "namespace": "cert-manager"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/jetstack/cert-manager-webhook",
+         "upstreamImage": "jetstack/cert-manager-webhook",
+         "version": "v1.5.3"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "cert-manager-webhook",
+       "namespace": "cert-manager"
+      }
+     ]
+    },
+    {
+     "name": "external",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "ingress-nginx-external",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/ingress-nginx/controller",
+         "upstreamImage": "ingress-nginx/controller",
+         "version": "v1.0.0"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "nginx-ingress-controller-external",
+       "namespace": "ingress-nginx"
+      }
+     ]
+    },
+    {
+     "name": "internal",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "ingress-nginx-internal",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/ingress-nginx/controller",
+         "upstreamImage": "ingress-nginx/controller",
+         "version": "v1.0.0"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "nginx-ingress-controller-internal",
+       "namespace": "ingress-nginx"
+      }
+     ]
+    },
+    {
+     "name": "dual-nginx",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "ingress-nginx-external",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "ingress-nginx-internal",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "ingress-nginx-metrics",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/ingress-nginx/controller",
+         "upstreamImage": "ingress-nginx/controller",
+         "version": "v1.0.0"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "nginx-ingress-controller-external",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/ingress-nginx/controller",
+         "upstreamImage": "ingress-nginx/controller",
+         "version": "v1.0.0"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "nginx-ingress-controller-internal",
+       "namespace": "ingress-nginx"
+      }
+     ]
+    },
+    {
+     "name": "forecastle",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "forecastle",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/stakater/forecastle",
+         "upstreamImage": "stakater/forecastle",
+         "version": "v1.0.66"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "forecastle",
+       "namespace": "ingress-nginx"
+      }
+     ]
+    },
+    {
+     "name": "dashboards",
+     "resources": []
+    },
+    {
+     "name": "configs",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "ingress-nginx-metrics",
+       "namespace": "ingress-nginx"
+      }
+     ]
+    },
+    {
+     "name": "controller",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "ingress-nginx",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/ingress-nginx/controller",
+         "upstreamImage": "ingress-nginx/controller",
+         "version": "v1.0.0"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "nginx-ingress-controller",
+       "namespace": "ingress-nginx"
+      }
+     ]
+    },
+    {
+     "name": "nginx",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "ingress-nginx",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "ingress-nginx-metrics",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/ingress-nginx/controller",
+         "upstreamImage": "ingress-nginx/controller",
+         "version": "v1.0.0"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "nginx-ingress-controller",
+       "namespace": "ingress-nginx"
+      }
+     ]
+    },
+    {
+     "name": "single",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "ingress-nginx",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/ingress-nginx/controller",
+         "upstreamImage": "ingress-nginx/controller",
+         "version": "v1.0.0"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "nginx-ingress-controller",
+       "namespace": "ingress-nginx"
+      }
+     ]
+    },
+    {
+     "name": "nginx-gke",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "ingress-nginx",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "ingress-nginx-metrics",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/ingress-nginx/controller",
+         "upstreamImage": "ingress-nginx/controller",
+         "version": "v1.0.0"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "nginx-ingress-controller",
+       "namespace": "ingress-nginx"
+      }
+     ]
+    },
+    {
+     "name": "config",
+     "resources": []
+    },
+    {
+     "name": "nginx-ldap-auth",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "nginx-ldap-auth",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/tpimenta/nginx-ldap-auth",
+         "upstreamImage": "tpimenta/nginx-ldap-auth",
+         "version": "v1.0.6"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "nginx-ldap-auth",
+       "namespace": "ingress-nginx"
+      }
+     ]
+    },
+    {
+     "name": "nginx-ovh",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "ingress-nginx",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "ingress-nginx-metrics",
+       "namespace": "ingress-nginx"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/ingress-nginx/controller",
+         "upstreamImage": "ingress-nginx/controller",
+         "version": "v1.0.0"
+        }
+       ],
+       "kind": "DaemonSet",
+       "name": "nginx-ingress-controller",
+       "namespace": "ingress-nginx"
+      }
+     ]
+    },
+    {
+     "name": "pomerium",
+     "resources": [
+      {
+       "apiVersion": "v1",
+       "containers": [],
+       "kind": "Service",
+       "name": "pomerium",
+       "namespace": "pomerium"
+      },
+      {
+       "apiVersion": "apps/v1",
+       "containers": [
+        {
+         "image": "registry.sighup.io/fury/pomerium/pomerium",
+         "upstreamImage": "pomerium/pomerium",
+         "version": "v0.15.0"
+        }
+       ],
+       "kind": "Deployment",
+       "name": "pomerium",
+       "namespace": "pomerium"
+      },
+      {
+       "apiVersion": "networking.k8s.io/v1",
+       "containers": [],
+       "kind": "Ingress",
+       "name": "pomerium",
+       "namespace": "pomerium"
+      }
+     ]
+    }
+   ],
+   "module": "fury-kubernetes-ingress",
+   "version": "1.11.1"
+  }
+ ],
+ "name": "fury-distribution",
+ "supported_k8s_runtimes": [],
+ "version": "1.5.0"
+}
