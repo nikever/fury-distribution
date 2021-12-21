@@ -21,18 +21,18 @@ This modular design makes it possible to extend the distribution with new featur
 
 The core modules provides essential functionality to the distribution.
 
-<center>
-  <img src="assets/fury-core-modules.png" width="300px"/>
-</center>
+<p align="center">
+  <img src="assets/fury-core-modules.png" width="400px"/>
+</p>
 
-| Module            	| Description                                                                               	| Latest Release                                                              	|
-|-------------------	|-------------------------------------------------------------------------------------------	|-----------------------------------------------------------------------------	|
-| Networking        	| Install Calico CNI plugin to implement basic networking functionality                     	| [![Version](https://img.shields.io/github/v/release/sighupio/fury-kubernetes-networking)]() 	|
-| Ingress           	| Fast and reliable Ingress Controller and TLS certificate management                       	| [![Version](https://img.shields.io/github/v/release/sighupio/fury-kubernetes-ingress)]()    	|
-| Logging           	| A centralized logging solution based on the EFK stack (Elastic + Fluentd + Kibana)        	| [![Version](https://img.shields.io/github/v/release/sighupio/fury-kubernetes-logging)]()    	|
-| Monitoring        	| Monitoring and alerting functionality based on Prometheus, AlertManager and Grafana       	| [![Version](https://img.shields.io/github/v/release/sighupio/fury-kubernetes-monitoring)]() 	|
-| Disaster Recovery 	| Backup and disaster recovery solution using Velero                                        	| [![Version](https://img.shields.io/github/v/release/sighupio/fury-kubernetes-dr)]()         	|
-| OPA               	| Policy and Governance for your cluster using OPA Gatekeeper and Gatekeeper Policy Manager 	| [![Version](https://img.shields.io/github/v/release/sighupio/fury-kubernetes-opa)]()        	|
+|      Module       |                                       Latest Release                                        |                                        Description                                        |
+| ----------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Networking        | [![Version](https://img.shields.io/github/v/release/sighupio/fury-kubernetes-networking)]() | Install Calico CNI plugin to implement basic networking functionality                     |
+| Ingress           | [![Version](https://img.shields.io/github/v/release/sighupio/fury-kubernetes-ingress)]()    | Fast and reliable Ingress Controller and TLS certificate management                       |
+| Logging           | [![Version](https://img.shields.io/github/v/release/sighupio/fury-kubernetes-logging)]()    | A centralized logging solution based on the EFK stack (Elastic + Fluentd + Kibana)        |
+| Monitoring        | [![Version](https://img.shields.io/github/v/release/sighupio/fury-kubernetes-monitoring)]() | Monitoring and alerting functionality based on Prometheus, AlertManager and Grafana       |
+| Disaster Recovery | [![Version](https://img.shields.io/github/v/release/sighupio/fury-kubernetes-dr)]()         | Backup and disaster recovery solution using Velero                                        |
+| OPA               | [![Version](https://img.shields.io/github/v/release/sighupio/fury-kubernetes-opa)]()        | Policy and Governance for your cluster using OPA Gatekeeper and Gatekeeper Policy Manager |
 
 ### Addons Modules
 
