@@ -1,51 +1,11 @@
-# Fury Distribution
+<h1 align="center">
+  <img src="assets/fury-epta-white.png" width="200px"/><br/>
+  Kubernetes Fury Distribution
+</h1>
+
+<p align="center">Kubernetes Fury Distribution (KFD) is a certified battle-tested Kubernetes distribution based purely on upstream Kubernetes.</p>
 
 [![Build Status](http://ci.sighup.io/api/badges/sighupio/fury-distribution/status.svg?ref=refs/tags/v1.6.0)](http://ci.sighup.io/sighupio/fury-distribution)
-
-## Information
-
-This repository spin up a kind cluster with a custom configuration:
-[katalog/tests/config/kind-config-custom](katalog/tests/config/kind-config-custom)
-
-The configuration is almost the same configuration we do in every Kubernetes cluster we create.
-This way, we can ensure everything works as expected, including the CNI *(calico)*.
-
-### Core Modules
-
-- Networking
-  - calico
-- Monitoring
-  - prometheus-operator
-  - prometheus-operated
-  - grafana
-  - goldpinger
-  - kubeadm-sm
-  - kube-state-metrics
-  - kube-proxy-exporter
-  - node-exporter
-  - metrics-server
-- Logging
-  - elasticsearch-single
-  - cerebro
-  - curator
-  - fluentd
-  - kibana
-- Ingress
-  - cert-manager
-  - nginx
-  - forecastle
-- DR
-  - Velero (on prem, with Minio)
-  - Velero Restic
-- OPA
-  - Gatekeeper
-  - Gatekeeper contraint templates
-  - Gatekeeper Policy Manager
-
-### Tests
-
-Smoke tests *(smoke testing)* are executed in this E2E pipeline. It checks everything is running.
-
-## License
-
-For license details, please see [LICENSE](LICENSE)
+[![Release](https://img.shields.io/github/v/release/sighupio/fury-distribution?label=FuryDistributionRelease)]()
+[![Slack](https://img.shields.io/badge/slack-@kubernetes/fury-yellow.svg?logo=slack)]()
+[![License](https://img.shields.io/github/license/sighupio/fury-distribution)]()
